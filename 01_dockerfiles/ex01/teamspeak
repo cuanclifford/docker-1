@@ -1,0 +1,24 @@
+#!/bin/bash
+
+USER="teamspeak"
+DIR="/teamspeak"
+
+case "$1" in
+start)
+su $USER -c "${DIR}/ts3server_startupscript.sh start"
+;;
+stop)
+su $USER -c "${DIR}/ts3server_startupscript.sh stop"
+;;
+restart)
+su $USER -c "${DIR}/ts3server_startupscript.sh restart"
+;;
+status
+su $USER -c "${DIR}/ts3server_startupscript.sh status"
+;;
+*)
+echo "Usage: {start|stop|restart|status}" >&2
+exit 1
+;;
+esac
+exit 0
